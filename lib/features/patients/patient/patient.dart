@@ -1,4 +1,4 @@
-import 'package:patients/main.dart';
+import '../../../main.dart';
 
 part 'patient.freezed.dart';
 part 'patient.g.dart';
@@ -20,7 +20,7 @@ enum AgeUnit { days, months, years }
 class Age with _$Age {
   const factory Age({
     @Default(0) final int value,
-    @Default(AgeUnit.days) final AgeUnit ageUnit,
+    @Default(AgeUnit.years) final AgeUnit ageUnit,
   }) = _Age;
 
   factory Age.fromJson(json) => _$AgeFromJson(json);
@@ -35,11 +35,14 @@ class Patient with _$Patient {
     required final DateTime? timeOfPresentation,
     @Default(PatientType.medical) final PatientType patientType,
     // @Default(Complaints()) final Complaints complaints,
-    @Default(<String>[]) final List<String> complaintsKeys,
-    @Default(Diagnosis()) final Diagnosis diagnosis,
-    @Default(EmergencyManagement())
-    final EmergencyManagement emergencyManagement,
-    @Default(HomeManagement()) final HomeManagement homeManagement,
+    // @Default(<String>[]) final List<String> complaintIDs,
+    @Default('') final String diagnosis,
+    @Default('') final String complaints,
+    @Default('') final String emrgencyTreatment,
+    @Default('') final String homeTreatment,
+    // @Default(EmergencyManagement())
+    // final EmergencyManagement emergencyManagement,
+    // @Default(HomeManagement()) final HomeManagement homeManagement,
     @Default(Pictures()) final Pictures pictures,
     @Default(false) final bool attended,
     @Default(false) final bool editing,
@@ -51,8 +54,11 @@ class Patient with _$Patient {
   factory Patient.fromJson(json) => _$PatientFromJson(json);
   factory Patient.fromID(String patientID) => patientsManager.fromID(patientID);
   const Patient._();
-  List<Complaint> get complaints =>
-      complaintsKeys.map((e) => Complaint.fromID(e)).toList();
+  // List<Complaint> get complaints => complaintIDs
+  //     .map(
+  //       (eachComplaintID) => Complaint.fromID(eachComplaintID),
+  //     )
+  //     .toList();
 }
 
 @freezed

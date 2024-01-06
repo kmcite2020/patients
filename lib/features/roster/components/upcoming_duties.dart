@@ -1,4 +1,4 @@
-import 'package:patients/main.dart';
+import '../../../main.dart';
 
 class UpcomingDuties extends UI {
   const UpcomingDuties({super.key});

@@ -1,4 +1,4 @@
-import 'package:patients/main.dart';
+import '../../../main.dart';
 
 class SettingsPage extends UI {
   const SettingsPage({super.key});
@@ -42,7 +42,7 @@ class SettingsPage extends UI {
                 .toList(),
             onChanged: settingsManager.onMaterialColorChanged,
           ).pad(),
-          const ToolsUI(),
+          // const ToolsUI(),
           const BorderRadiusModifier(),
           const UserUI(),
         ],

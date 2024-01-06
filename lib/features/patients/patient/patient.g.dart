@@ -22,7 +22,7 @@ Map<String, dynamic> _$$PatientsImplToJson(_$PatientsImpl instance) =>
 _$AgeImpl _$$AgeImplFromJson(Map<String, dynamic> json) => _$AgeImpl(
       value: json['value'] as int? ?? 0,
       ageUnit: $enumDecodeNullable(_$AgeUnitEnumMap, json['ageUnit']) ??
-          AgeUnit.days,
+          AgeUnit.years,
     );
 
 Map<String, dynamic> _$$AgeImplToJson(_$AgeImpl instance) => <String, dynamic>{
@@ -47,19 +47,10 @@ _$PatientImpl _$$PatientImplFromJson(Map<String, dynamic> json) =>
       patientType:
           $enumDecodeNullable(_$PatientTypeEnumMap, json['patientType']) ??
               PatientType.medical,
-      complaintsKeys: (json['complaintsKeys'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      diagnosis: json['diagnosis'] == null
-          ? const Diagnosis()
-          : Diagnosis.fromJson(json['diagnosis']),
-      emergencyManagement: json['emergencyManagement'] == null
-          ? const EmergencyManagement()
-          : EmergencyManagement.fromJson(json['emergencyManagement']),
-      homeManagement: json['homeManagement'] == null
-          ? const HomeManagement()
-          : HomeManagement.fromJson(json['homeManagement']),
+      diagnosis: json['diagnosis'] as String? ?? '',
+      complaints: json['complaints'] as String? ?? '',
+      emrgencyTreatment: json['emrgencyTreatment'] as String? ?? '',
+      homeTreatment: json['homeTreatment'] as String? ?? '',
       pictures: json['pictures'] == null
           ? const Pictures()
           : Pictures.fromJson(json['pictures']),
@@ -74,10 +65,10 @@ Map<String, dynamic> _$$PatientImplToJson(_$PatientImpl instance) =>
       'age': instance.age,
       'timeOfPresentation': instance.timeOfPresentation?.toIso8601String(),
       'patientType': _$PatientTypeEnumMap[instance.patientType]!,
-      'complaintsKeys': instance.complaintsKeys,
       'diagnosis': instance.diagnosis,
-      'emergencyManagement': instance.emergencyManagement,
-      'homeManagement': instance.homeManagement,
+      'complaints': instance.complaints,
+      'emrgencyTreatment': instance.emrgencyTreatment,
+      'homeTreatment': instance.homeTreatment,
       'pictures': instance.pictures,
       'attended': instance.attended,
       'editing': instance.editing,

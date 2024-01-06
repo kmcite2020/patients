@@ -1,4 +1,4 @@
-import 'package:patients/main.dart';
+import '../../../main.dart';
 
 class RosterTable extends UI {
   const RosterTable({super.key});

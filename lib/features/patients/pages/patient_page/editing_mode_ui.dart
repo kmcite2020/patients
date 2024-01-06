@@ -1,4 +1,4 @@
-import 'package:patients/main.dart';
+import '../../../../main.dart';
 
 class EditingModeUI extends UI {
   const EditingModeUI({super.key, required this.id});
@@ -6,118 +6,75 @@ class EditingModeUI extends UI {
   @override
   Widget build(BuildContext context) {
     return PatientBuilder(
+      id: id,
       builder: (patient) {
         return ListView(
           shrinkWrap: true,
           children: [
-            'editing'.text().pad(),
+            AgeUI(age: patient.age),
             TextFormField(
-              initialValue: patient.name,
-              onChanged: (_) {
+              initialValue: patient.name.toUpperCase(),
+              onChanged: (name) {
                 patientsManager.setPatient(
-                  patient.copyWith(name: _),
+                  patient.copyWith(name: name.toUpperCase()),
                 );
               },
               decoration: const InputDecoration(
-                labelText: 'Name',
+                labelText: 'NAME',
               ),
             ).pad(),
             TextFormField(
-              initialValue: patient.diagnosis.diagnosis,
-              onChanged: (_) {
+              minLines: 4,
+              maxLines: 6,
+              initialValue: patient.complaints,
+              onChanged: (complaints) {
                 patientsManager.setPatient(
-                  patient.copyWith(
-                    diagnosis: patient.diagnosis.copyWith(diagnosis: _),
-                  ),
+                  patient.copyWith(complaints: complaints),
                 );
               },
               decoration: const InputDecoration(
-                labelText: 'Diagnosis',
+                labelText: 'COMPLAINTS',
               ),
             ).pad(),
             TextFormField(
-              onFieldSubmitted: (value) {
-                // patientBloc.addComplaint(() => const Complaint());
-                // complaintRM.focusNode.requestFocus();
-                // complaintRM.controller.clear();
-              },
-              decoration:
-                  const InputDecoration(labelText: 'Complaints - Adder'),
-            ).pad(),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: patient.complaints
-                    .map(
-                      (e) => SizedBox(
-                        height: 60,
-                        width: 150,
-                        child: ElevatedButton(
-                          onLongPress: () {
-                            // patientBloc.removeComplaint(() => e);
-                          },
-                          onPressed: null,
-                          child: e.value.text(),
-                        ).pad(
-                          padding: EdgeInsets.only(
-                            left: settingsManager.settings.padding,
-                          ),
-                        ),
-                      ),
-                    )
-                    .toList()
-                  ..add(SizedBox(width: settingsManager.settings.padding)),
-              ),
-            ),
-            TextFormField(
-              autovalidateMode: AutovalidateMode.always,
-              validator: (value) {
-                final s = value?.split(' ');
-                if (s == null) return 'INVALID - 0';
-                if (s.length != 5) {
-                  return 'INVALID - split in 5 words by 4 spaces';
-                }
-                return null;
-              },
-              onFieldSubmitted: (value) {
-                // patientsManager.setPatient(
-                //   patient.copyWith(
-                //     emergencyManagement: [
-                //       ...patient.emergencyManagement,
-                //       Management.fromString(value),
-                //     ],
-                //   ),
-                // );
+              initialValue: patient.diagnosis,
+              minLines: 2,
+              maxLines: 3,
+              onChanged: (diagnosis) {
+                patientsManager.setPatient(
+                  patient.copyWith(diagnosis: diagnosis),
+                );
               },
               decoration: const InputDecoration(
-                  labelText: 'Emergency Management - Adder'),
+                labelText: 'DIAGNOSIS',
+              ),
             ).pad(),
             TextFormField(
-              validator: (value) {
-                final s = value?.split(' ');
-                if (s!.length != 5) {
-                  return 'INVALID - there should be 4 spaces and five words';
-                }
-                return null;
-              },
-              onFieldSubmitted: (value) {
-                // patientBloc.setPatient(
-                //   (patient) => patient.copyWith(
-                //     homeManagement: [
-                //       ...patient.homeManagement,
-                //       Management.fromString(value),
-                //     ],
-                //   ),
-                // );
+              initialValue: patient.emrgencyTreatment,
+              minLines: 5,
+              maxLines: 20,
+              onChanged: (emergencyTreatment) {
+                patientsManager.setPatient(
+                  patient.copyWith(emrgencyTreatment: emergencyTreatment),
+                );
               },
               decoration:
-                  const InputDecoration(labelText: 'Home Management - Adder'),
+                  const InputDecoration(labelText: 'EMERGENCY TREATMENT'),
             ).pad(),
-            patient.text().pad(),
+            TextFormField(
+              initialValue: patient.homeTreatment,
+              minLines: 5,
+              maxLines: 20,
+              onChanged: (homeTreatment) {
+                patientsManager.setPatient(
+                  patient.copyWith(homeTreatment: homeTreatment),
+                );
+              },
+              decoration: const InputDecoration(labelText: 'HOME TREATMENT'),
+            ).pad(),
           ],
         );
       },
-      id: id,
     );
   }
 }

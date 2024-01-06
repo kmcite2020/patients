@@ -1,4 +1,4 @@
-import 'package:patients/main.dart';
+import '../../../main.dart';
 
 class RosterPage extends UI {
   const RosterPage({super.key});

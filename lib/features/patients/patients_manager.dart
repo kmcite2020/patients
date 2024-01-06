@@ -1,4 +1,4 @@
-import 'package:patients/main.dart';
+import '../../main.dart';
 
 final patientsManager = PatientsManager();
 
@@ -40,11 +40,12 @@ class DiagnosisManager {
     Diagnosis Function(String patientID) diagnosisModifier,
     String patientID,
   ) {
+    // ignore: unused_local_variable
     final patient = Patient.fromID(patientID);
-    patientsManager.setPatient(
-      patient.copyWith(
-        diagnosis: diagnosisModifier(patientID),
-      ),
-    );
+    // patientsManager.setPatient(
+    //   patient.copyWith(
+    //     diagnosis: diagnosisModifier(patientID),
+    //   ),
+    // );
   }
 }

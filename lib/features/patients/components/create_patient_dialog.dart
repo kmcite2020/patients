@@ -25,14 +25,14 @@ class CreatePatientDialog extends UI {
                 if (patientType == null) return;
                 setPatient(patient.copyWith(patientType: patientType));
               },
-              decoration: const InputDecoration(labelText: 'Triage'),
+              decoration: const InputDecoration(labelText: 'TRIAGE'),
             ).pad(),
             TextFormField(
               initialValue: patient.name,
               onChanged: (value) {
                 setPatient(patient.copyWith(name: value));
               },
-              decoration: const InputDecoration(labelText: 'Name'),
+              decoration: const InputDecoration(labelText: 'NAME'),
             ).pad(),
             Row(
               children: [
@@ -54,14 +54,14 @@ class CreatePatientDialog extends UI {
                       }
                     },
                     decoration: const InputDecoration(
-                      labelText: 'Age',
+                      labelText: 'AGE',
                     ),
                   ).pad(),
                 ),
                 Expanded(
                   child: DropdownButtonFormField(
                     value: patient.age.ageUnit,
-                    decoration: const InputDecoration(labelText: 'Unit'),
+                    decoration: const InputDecoration(labelText: 'UNIT'),
                     items: AgeUnit.values.map(
                       (eachAgeUnit) {
                         return DropdownMenuItem(
@@ -85,34 +85,6 @@ class CreatePatientDialog extends UI {
               ],
             ),
             AgeUI(age: patient.age),
-            Column(
-              children: [
-                'Complaints'.text(),
-                Divider(height: 0, color: settingsManager.materialColor),
-                SizedBox(
-                  height: 200,
-                  child: ListView(
-                    children: complaintsManager.listOfComplaints
-                        .map(
-                          (e) => SwitchListTile(
-                            title: e.value.text(textScaleFactor: .8),
-                            onChanged: (value) {
-                              if (value) {
-                                patientComplaintsManager.addComplaint(e.id);
-                              } else {
-                                patientComplaintsManager.removeComplaint(e.id);
-                              }
-                            },
-                            value: patientComplaintsManager.contains(e.id),
-                          ).center(),
-                        )
-                        .toList(),
-                  ),
-                ),
-                Divider(height: 0, color: settingsManager.materialColor),
-                const ComplaintDialog(),
-              ],
-            ).borderizeGradiently(),
             Row(
               children: [
                 IconButton.filledTonal(
@@ -142,23 +114,25 @@ class newPatientManager {
 // ignore: camel_case_types
 class patientComplaintsManager {
   static void setComplaints(List<String> complaintsIDs) {
-    newPatientManager.setPatient(
-      newPatientManager.patient.copyWith(complaintsKeys: complaintsIDs),
-    );
+    // newPatientManager.setPatient(
+    //   newPatientManager.patient.copyWith(complaintIDs: complaintsIDs),
+    // );
   }
 
   static void addComplaint(String complaintID) {
-    setComplaints(
-      List.of(newPatientManager.patient.complaintsKeys)..add(complaintID),
-    );
+    // setComplaints(
+    //   List.of(newPatientManager.patient.complaintIDs)..add(complaintID),
+    // );
   }
 
   static void removeComplaint(String complaintID) {
-    setComplaints(
-      List.of(newPatientManager.patient.complaintsKeys)..remove(complaintID),
-    );
+    // setComplaints(
+    //   List.of(newPatientManager.patient.complaintIDs)..remove(complaintID),
+    // );
   }
 
-  static bool contains(String complaintID) =>
-      newPatientManager.patient.complaintsKeys.contains(complaintID);
+  static bool contains(String complaintID) {
+    return true;
+    // newPatientManager.patient.complaintIDs.contains(complaintID);
+  }
 }

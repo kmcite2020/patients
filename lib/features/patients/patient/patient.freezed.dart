@@ -249,7 +249,7 @@ class __$$AgeImplCopyWithImpl<$Res> extends _$AgeCopyWithImpl<$Res, _$AgeImpl>
 /// @nodoc
 @JsonSerializable()
 class _$AgeImpl implements _Age {
-  const _$AgeImpl({this.value = 0, this.ageUnit = AgeUnit.days});
+  const _$AgeImpl({this.value = 0, this.ageUnit = AgeUnit.years});
 
   factory _$AgeImpl.fromJson(Map<String, dynamic> json) =>
       _$$AgeImplFromJson(json);
@@ -320,11 +320,14 @@ mixin _$Patient {
   DateTime? get timeOfPresentation => throw _privateConstructorUsedError;
   PatientType get patientType =>
       throw _privateConstructorUsedError; // @Default(Complaints()) final Complaints complaints,
-  List<String> get complaintsKeys => throw _privateConstructorUsedError;
-  Diagnosis get diagnosis => throw _privateConstructorUsedError;
-  EmergencyManagement get emergencyManagement =>
-      throw _privateConstructorUsedError;
-  HomeManagement get homeManagement => throw _privateConstructorUsedError;
+// @Default(<String>[]) final List<String> complaintIDs,
+  String get diagnosis => throw _privateConstructorUsedError;
+  String get complaints => throw _privateConstructorUsedError;
+  String get emrgencyTreatment => throw _privateConstructorUsedError;
+  String get homeTreatment =>
+      throw _privateConstructorUsedError; // @Default(EmergencyManagement())
+// final EmergencyManagement emergencyManagement,
+// @Default(HomeManagement()) final HomeManagement homeManagement,
   Pictures get pictures => throw _privateConstructorUsedError;
   bool get attended => throw _privateConstructorUsedError;
   bool get editing => throw _privateConstructorUsedError;
@@ -336,10 +339,10 @@ mixin _$Patient {
             Age age,
             DateTime? timeOfPresentation,
             PatientType patientType,
-            List<String> complaintsKeys,
-            Diagnosis diagnosis,
-            EmergencyManagement emergencyManagement,
-            HomeManagement homeManagement,
+            String diagnosis,
+            String complaints,
+            String emrgencyTreatment,
+            String homeTreatment,
             Pictures pictures,
             bool attended,
             bool editing)
@@ -354,10 +357,10 @@ mixin _$Patient {
             Age age,
             DateTime? timeOfPresentation,
             PatientType patientType,
-            List<String> complaintsKeys,
-            Diagnosis diagnosis,
-            EmergencyManagement emergencyManagement,
-            HomeManagement homeManagement,
+            String diagnosis,
+            String complaints,
+            String emrgencyTreatment,
+            String homeTreatment,
             Pictures pictures,
             bool attended,
             bool editing)?
@@ -372,10 +375,10 @@ mixin _$Patient {
             Age age,
             DateTime? timeOfPresentation,
             PatientType patientType,
-            List<String> complaintsKeys,
-            Diagnosis diagnosis,
-            EmergencyManagement emergencyManagement,
-            HomeManagement homeManagement,
+            String diagnosis,
+            String complaints,
+            String emrgencyTreatment,
+            String homeTreatment,
             Pictures pictures,
             bool attended,
             bool editing)?
@@ -415,18 +418,15 @@ abstract class $PatientCopyWith<$Res> {
       Age age,
       DateTime? timeOfPresentation,
       PatientType patientType,
-      List<String> complaintsKeys,
-      Diagnosis diagnosis,
-      EmergencyManagement emergencyManagement,
-      HomeManagement homeManagement,
+      String diagnosis,
+      String complaints,
+      String emrgencyTreatment,
+      String homeTreatment,
       Pictures pictures,
       bool attended,
       bool editing});
 
   $AgeCopyWith<$Res> get age;
-  $DiagnosisCopyWith<$Res> get diagnosis;
-  $EmergencyManagementCopyWith<$Res> get emergencyManagement;
-  $HomeManagementCopyWith<$Res> get homeManagement;
   $PicturesCopyWith<$Res> get pictures;
 }
 
@@ -448,10 +448,10 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
     Object? age = null,
     Object? timeOfPresentation = freezed,
     Object? patientType = null,
-    Object? complaintsKeys = null,
     Object? diagnosis = null,
-    Object? emergencyManagement = null,
-    Object? homeManagement = null,
+    Object? complaints = null,
+    Object? emrgencyTreatment = null,
+    Object? homeTreatment = null,
     Object? pictures = null,
     Object? attended = null,
     Object? editing = null,
@@ -477,22 +477,22 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
           ? _value.patientType
           : patientType // ignore: cast_nullable_to_non_nullable
               as PatientType,
-      complaintsKeys: null == complaintsKeys
-          ? _value.complaintsKeys
-          : complaintsKeys // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       diagnosis: null == diagnosis
           ? _value.diagnosis
           : diagnosis // ignore: cast_nullable_to_non_nullable
-              as Diagnosis,
-      emergencyManagement: null == emergencyManagement
-          ? _value.emergencyManagement
-          : emergencyManagement // ignore: cast_nullable_to_non_nullable
-              as EmergencyManagement,
-      homeManagement: null == homeManagement
-          ? _value.homeManagement
-          : homeManagement // ignore: cast_nullable_to_non_nullable
-              as HomeManagement,
+              as String,
+      complaints: null == complaints
+          ? _value.complaints
+          : complaints // ignore: cast_nullable_to_non_nullable
+              as String,
+      emrgencyTreatment: null == emrgencyTreatment
+          ? _value.emrgencyTreatment
+          : emrgencyTreatment // ignore: cast_nullable_to_non_nullable
+              as String,
+      homeTreatment: null == homeTreatment
+          ? _value.homeTreatment
+          : homeTreatment // ignore: cast_nullable_to_non_nullable
+              as String,
       pictures: null == pictures
           ? _value.pictures
           : pictures // ignore: cast_nullable_to_non_nullable
@@ -518,31 +518,6 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
 
   @override
   @pragma('vm:prefer-inline')
-  $DiagnosisCopyWith<$Res> get diagnosis {
-    return $DiagnosisCopyWith<$Res>(_value.diagnosis, (value) {
-      return _then(_value.copyWith(diagnosis: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $EmergencyManagementCopyWith<$Res> get emergencyManagement {
-    return $EmergencyManagementCopyWith<$Res>(_value.emergencyManagement,
-        (value) {
-      return _then(_value.copyWith(emergencyManagement: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $HomeManagementCopyWith<$Res> get homeManagement {
-    return $HomeManagementCopyWith<$Res>(_value.homeManagement, (value) {
-      return _then(_value.copyWith(homeManagement: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $PicturesCopyWith<$Res> get pictures {
     return $PicturesCopyWith<$Res>(_value.pictures, (value) {
       return _then(_value.copyWith(pictures: value) as $Val);
@@ -563,22 +538,16 @@ abstract class _$$PatientImplCopyWith<$Res> implements $PatientCopyWith<$Res> {
       Age age,
       DateTime? timeOfPresentation,
       PatientType patientType,
-      List<String> complaintsKeys,
-      Diagnosis diagnosis,
-      EmergencyManagement emergencyManagement,
-      HomeManagement homeManagement,
+      String diagnosis,
+      String complaints,
+      String emrgencyTreatment,
+      String homeTreatment,
       Pictures pictures,
       bool attended,
       bool editing});
 
   @override
   $AgeCopyWith<$Res> get age;
-  @override
-  $DiagnosisCopyWith<$Res> get diagnosis;
-  @override
-  $EmergencyManagementCopyWith<$Res> get emergencyManagement;
-  @override
-  $HomeManagementCopyWith<$Res> get homeManagement;
   @override
   $PicturesCopyWith<$Res> get pictures;
 }
@@ -599,10 +568,10 @@ class __$$PatientImplCopyWithImpl<$Res>
     Object? age = null,
     Object? timeOfPresentation = freezed,
     Object? patientType = null,
-    Object? complaintsKeys = null,
     Object? diagnosis = null,
-    Object? emergencyManagement = null,
-    Object? homeManagement = null,
+    Object? complaints = null,
+    Object? emrgencyTreatment = null,
+    Object? homeTreatment = null,
     Object? pictures = null,
     Object? attended = null,
     Object? editing = null,
@@ -628,22 +597,22 @@ class __$$PatientImplCopyWithImpl<$Res>
           ? _value.patientType
           : patientType // ignore: cast_nullable_to_non_nullable
               as PatientType,
-      complaintsKeys: null == complaintsKeys
-          ? _value._complaintsKeys
-          : complaintsKeys // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       diagnosis: null == diagnosis
           ? _value.diagnosis
           : diagnosis // ignore: cast_nullable_to_non_nullable
-              as Diagnosis,
-      emergencyManagement: null == emergencyManagement
-          ? _value.emergencyManagement
-          : emergencyManagement // ignore: cast_nullable_to_non_nullable
-              as EmergencyManagement,
-      homeManagement: null == homeManagement
-          ? _value.homeManagement
-          : homeManagement // ignore: cast_nullable_to_non_nullable
-              as HomeManagement,
+              as String,
+      complaints: null == complaints
+          ? _value.complaints
+          : complaints // ignore: cast_nullable_to_non_nullable
+              as String,
+      emrgencyTreatment: null == emrgencyTreatment
+          ? _value.emrgencyTreatment
+          : emrgencyTreatment // ignore: cast_nullable_to_non_nullable
+              as String,
+      homeTreatment: null == homeTreatment
+          ? _value.homeTreatment
+          : homeTreatment // ignore: cast_nullable_to_non_nullable
+              as String,
       pictures: null == pictures
           ? _value.pictures
           : pictures // ignore: cast_nullable_to_non_nullable
@@ -669,15 +638,14 @@ class _$PatientImpl extends _Patient {
       this.age = const Age(),
       required this.timeOfPresentation,
       this.patientType = PatientType.medical,
-      final List<String> complaintsKeys = const <String>[],
-      this.diagnosis = const Diagnosis(),
-      this.emergencyManagement = const EmergencyManagement(),
-      this.homeManagement = const HomeManagement(),
+      this.diagnosis = '',
+      this.complaints = '',
+      this.emrgencyTreatment = '',
+      this.homeTreatment = '',
       this.pictures = const Pictures(),
       this.attended = false,
       this.editing = false})
-      : _complaintsKeys = complaintsKeys,
-        super._();
+      : super._();
 
   factory _$PatientImpl.fromJson(Map<String, dynamic> json) =>
       _$$PatientImplFromJson(json);
@@ -697,25 +665,22 @@ class _$PatientImpl extends _Patient {
   @JsonKey()
   final PatientType patientType;
 // @Default(Complaints()) final Complaints complaints,
-  final List<String> _complaintsKeys;
-// @Default(Complaints()) final Complaints complaints,
+// @Default(<String>[]) final List<String> complaintIDs,
   @override
   @JsonKey()
-  List<String> get complaintsKeys {
-    if (_complaintsKeys is EqualUnmodifiableListView) return _complaintsKeys;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_complaintsKeys);
-  }
-
+  final String diagnosis;
   @override
   @JsonKey()
-  final Diagnosis diagnosis;
+  final String complaints;
   @override
   @JsonKey()
-  final EmergencyManagement emergencyManagement;
+  final String emrgencyTreatment;
   @override
   @JsonKey()
-  final HomeManagement homeManagement;
+  final String homeTreatment;
+// @Default(EmergencyManagement())
+// final EmergencyManagement emergencyManagement,
+// @Default(HomeManagement()) final HomeManagement homeManagement,
   @override
   @JsonKey()
   final Pictures pictures;
@@ -728,7 +693,7 @@ class _$PatientImpl extends _Patient {
 
   @override
   String toString() {
-    return 'Patient.raw(id: $id, name: $name, age: $age, timeOfPresentation: $timeOfPresentation, patientType: $patientType, complaintsKeys: $complaintsKeys, diagnosis: $diagnosis, emergencyManagement: $emergencyManagement, homeManagement: $homeManagement, pictures: $pictures, attended: $attended, editing: $editing)';
+    return 'Patient.raw(id: $id, name: $name, age: $age, timeOfPresentation: $timeOfPresentation, patientType: $patientType, diagnosis: $diagnosis, complaints: $complaints, emrgencyTreatment: $emrgencyTreatment, homeTreatment: $homeTreatment, pictures: $pictures, attended: $attended, editing: $editing)';
   }
 
   @override
@@ -743,14 +708,14 @@ class _$PatientImpl extends _Patient {
                 other.timeOfPresentation == timeOfPresentation) &&
             (identical(other.patientType, patientType) ||
                 other.patientType == patientType) &&
-            const DeepCollectionEquality()
-                .equals(other._complaintsKeys, _complaintsKeys) &&
             (identical(other.diagnosis, diagnosis) ||
                 other.diagnosis == diagnosis) &&
-            (identical(other.emergencyManagement, emergencyManagement) ||
-                other.emergencyManagement == emergencyManagement) &&
-            (identical(other.homeManagement, homeManagement) ||
-                other.homeManagement == homeManagement) &&
+            (identical(other.complaints, complaints) ||
+                other.complaints == complaints) &&
+            (identical(other.emrgencyTreatment, emrgencyTreatment) ||
+                other.emrgencyTreatment == emrgencyTreatment) &&
+            (identical(other.homeTreatment, homeTreatment) ||
+                other.homeTreatment == homeTreatment) &&
             (identical(other.pictures, pictures) ||
                 other.pictures == pictures) &&
             (identical(other.attended, attended) ||
@@ -767,10 +732,10 @@ class _$PatientImpl extends _Patient {
       age,
       timeOfPresentation,
       patientType,
-      const DeepCollectionEquality().hash(_complaintsKeys),
       diagnosis,
-      emergencyManagement,
-      homeManagement,
+      complaints,
+      emrgencyTreatment,
+      homeTreatment,
       pictures,
       attended,
       editing);
@@ -790,10 +755,10 @@ class _$PatientImpl extends _Patient {
             Age age,
             DateTime? timeOfPresentation,
             PatientType patientType,
-            List<String> complaintsKeys,
-            Diagnosis diagnosis,
-            EmergencyManagement emergencyManagement,
-            HomeManagement homeManagement,
+            String diagnosis,
+            String complaints,
+            String emrgencyTreatment,
+            String homeTreatment,
             Pictures pictures,
             bool attended,
             bool editing)
@@ -805,10 +770,10 @@ class _$PatientImpl extends _Patient {
         age,
         timeOfPresentation,
         patientType,
-        complaintsKeys,
         diagnosis,
-        emergencyManagement,
-        homeManagement,
+        complaints,
+        emrgencyTreatment,
+        homeTreatment,
         pictures,
         attended,
         editing);
@@ -823,10 +788,10 @@ class _$PatientImpl extends _Patient {
             Age age,
             DateTime? timeOfPresentation,
             PatientType patientType,
-            List<String> complaintsKeys,
-            Diagnosis diagnosis,
-            EmergencyManagement emergencyManagement,
-            HomeManagement homeManagement,
+            String diagnosis,
+            String complaints,
+            String emrgencyTreatment,
+            String homeTreatment,
             Pictures pictures,
             bool attended,
             bool editing)?
@@ -838,10 +803,10 @@ class _$PatientImpl extends _Patient {
         age,
         timeOfPresentation,
         patientType,
-        complaintsKeys,
         diagnosis,
-        emergencyManagement,
-        homeManagement,
+        complaints,
+        emrgencyTreatment,
+        homeTreatment,
         pictures,
         attended,
         editing);
@@ -856,10 +821,10 @@ class _$PatientImpl extends _Patient {
             Age age,
             DateTime? timeOfPresentation,
             PatientType patientType,
-            List<String> complaintsKeys,
-            Diagnosis diagnosis,
-            EmergencyManagement emergencyManagement,
-            HomeManagement homeManagement,
+            String diagnosis,
+            String complaints,
+            String emrgencyTreatment,
+            String homeTreatment,
             Pictures pictures,
             bool attended,
             bool editing)?
@@ -873,10 +838,10 @@ class _$PatientImpl extends _Patient {
           age,
           timeOfPresentation,
           patientType,
-          complaintsKeys,
           diagnosis,
-          emergencyManagement,
-          homeManagement,
+          complaints,
+          emrgencyTreatment,
+          homeTreatment,
           pictures,
           attended,
           editing);
@@ -927,10 +892,10 @@ abstract class _Patient extends Patient {
       final Age age,
       required final DateTime? timeOfPresentation,
       final PatientType patientType,
-      final List<String> complaintsKeys,
-      final Diagnosis diagnosis,
-      final EmergencyManagement emergencyManagement,
-      final HomeManagement homeManagement,
+      final String diagnosis,
+      final String complaints,
+      final String emrgencyTreatment,
+      final String homeTreatment,
       final Pictures pictures,
       final bool attended,
       final bool editing}) = _$PatientImpl;
@@ -949,14 +914,17 @@ abstract class _Patient extends Patient {
   @override
   PatientType get patientType;
   @override // @Default(Complaints()) final Complaints complaints,
-  List<String> get complaintsKeys;
+// @Default(<String>[]) final List<String> complaintIDs,
+  String get diagnosis;
   @override
-  Diagnosis get diagnosis;
+  String get complaints;
   @override
-  EmergencyManagement get emergencyManagement;
+  String get emrgencyTreatment;
   @override
-  HomeManagement get homeManagement;
-  @override
+  String get homeTreatment;
+  @override // @Default(EmergencyManagement())
+// final EmergencyManagement emergencyManagement,
+// @Default(HomeManagement()) final HomeManagement homeManagement,
   Pictures get pictures;
   @override
   bool get attended;

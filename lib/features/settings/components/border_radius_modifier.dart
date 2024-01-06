@@ -1,4 +1,4 @@
-import 'package:patients/main.dart';
+import '../../../main.dart';
 
 class BorderRadiusModifier extends UI {
   const BorderRadiusModifier({super.key});

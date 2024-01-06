@@ -1,4 +1,4 @@
-import 'package:patients/main.dart';
+import '../../../main.dart';
 
 class PatientsPage extends UI {
   const PatientsPage({super.key});

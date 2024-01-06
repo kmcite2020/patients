@@ -1,5 +1,4 @@
-import 'package:patients/features/patients/features/pages/complaints_page.dart';
-import 'package:patients/main.dart';
+import '../../../main.dart';
 
 class ToolsUI extends UI {
   const ToolsUI({super.key});
@@ -11,7 +10,7 @@ class ToolsUI extends UI {
         IconButton.filledTonal(
           tooltip: 'Complaints Manager',
           onPressed: () {
-            navigator.to(const ComplaintsPage());
+            // navigator.to(const ComplaintsPage());
           },
           icon: const Icon(
             Icons.comment,
@@ -20,7 +19,7 @@ class ToolsUI extends UI {
         IconButton.filledTonal(
           tooltip: 'Complaints Manager',
           onPressed: () {
-            navigator.to(const ComplaintsPage());
+            // navigator.to(const ComplaintsPage());
           },
           icon: const Icon(
             Icons.macro_off,

@@ -1,4 +1,4 @@
-import 'package:patients/features/roster/roster.dart';
+import '../../main.dart';
 
 final upcomingDutyFinder = UpcomingDutyFinder();
 

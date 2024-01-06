@@ -1,6 +1,6 @@
 import '../../../main.dart';
 
-class AgeUI extends StatelessWidget {
+class AgeUI extends UI {
   const AgeUI({super.key, required this.age});
   final Age age;
   @override

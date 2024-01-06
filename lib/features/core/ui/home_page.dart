@@ -22,7 +22,7 @@ class HomePage extends UI {
                   textScaleFactor: 2,
                 )
                 .borderizeGradiently(),
-            'These are the patients I have checked in my duties'
+            'These are the patients I have attended in my duties'
                 .text()
                 .pad()
                 .borderizeGradiently(),

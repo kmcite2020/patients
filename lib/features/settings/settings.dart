@@ -1,4 +1,4 @@
-import 'package:patients/main.dart';
+import '../../main.dart';
 
 part 'settings.freezed.dart';
 part 'settings.g.dart';
