@@ -10,7 +10,7 @@ class PatientTile extends UI {
   @override
   Widget build(BuildContext context) {
     return PatientBuilder(
-      id: id,
+      patientID: id,
       builder: (patient) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -25,7 +25,7 @@ class PatientTile extends UI {
                 ).pad(),
                 IconButton.filledTonal(
                   tooltip: patient.attended ? 'Attended' : 'Un-attended',
-                  onPressed: () => patientsManager.setPatient(
+                  onPressed: () => setPatient(
                     patient.copyWith(attended: !patient.attended),
                   ),
                   icon: Icon(
@@ -35,7 +35,7 @@ class PatientTile extends UI {
                 IconButton.filledTonal(
                   tooltip: 'Delete',
                   onPressed: () {
-                    patientsManager.removePatient(patient);
+                    removePatient(patient);
                   },
                   icon: const Icon(Icons.delete_forever),
                 ).pad(),
@@ -49,41 +49,41 @@ class PatientTile extends UI {
   }
 }
 
-class DiagnosisUpdater {
-  Diagnosis diagnosis = const Diagnosis();
-  void updateDiagnosis(Diagnosis diagnosis, Patient patient) {
-    // patientsManager.setPatient(
-    //   patient.copyWith(diagnosis: diagnosis),
-    // );
-  }
+// class DiagnosisUpdater {
+//   Diagnosis diagnosis = const Diagnosis();
+//   void updateDiagnosis(Diagnosis diagnosis, Patient patient) {
+//     // patientsManager.setPatient(
+//     //   patient.copyWith(diagnosis: diagnosis),
+//     // );
+//   }
 
-  void setDiagnosis(String dx, Patient patient) {
-    // updateDiagnosis(
-    //   patient.diagnosis.copyWith(diagnosis: dx),
-    //   patient,
-    // );
-  }
+//   void setDiagnosis(String dx, Patient patient) {
+//     // updateDiagnosis(
+//     //   patient.diagnosis.copyWith(diagnosis: dx),
+//     //   patient,
+//     // );
+//   }
 
-  List<String> get provDxs => [];
-  void setProvisionalDiagnoses(List<String> dxs, Patient patient) {
-    // updateDiagnosis(
-    //   patient.diagnosis.copyWith(provisionalDiagnoses: dxs),
-    //   patient,
-    // );
-  }
+//   List<String> get provDxs => [];
+//   void setProvisionalDiagnoses(List<String> dxs, Patient patient) {
+//     // updateDiagnosis(
+//     //   patient.diagnosis.copyWith(provisionalDiagnoses: dxs),
+//     //   patient,
+//     // );
+//   }
 
-  void addProvisionalDiagnosis(
-    String dx,
-    Patient patient,
-  ) {
-    setProvisionalDiagnoses(diagnosis.provisionalDiagnoses..add(dx), patient);
-  }
+//   void addProvisionalDiagnosis(
+//     String dx,
+//     Patient patient,
+//   ) {
+//     setProvisionalDiagnoses(diagnosis.provisionalDiagnoses..add(dx), patient);
+//   }
 
-  void removeProvisionalDiagnosis(
-    String dx,
-    Patient patient,
-  ) {
-    setProvisionalDiagnoses(
-        diagnosis.provisionalDiagnoses..remove(dx), patient);
-  }
-}
+//   void removeProvisionalDiagnosis(
+//     String dx,
+//     Patient patient,
+//   ) {
+//     setProvisionalDiagnoses(
+//         diagnosis.provisionalDiagnoses..remove(dx), patient);
+//   }
+// }

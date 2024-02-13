@@ -47,10 +47,22 @@ _$PatientImpl _$$PatientImplFromJson(Map<String, dynamic> json) =>
       patientType:
           $enumDecodeNullable(_$PatientTypeEnumMap, json['patientType']) ??
               PatientType.medical,
-      diagnosis: json['diagnosis'] as String? ?? '',
-      complaints: json['complaints'] as String? ?? '',
-      emrgencyTreatment: json['emrgencyTreatment'] as String? ?? '',
-      homeTreatment: json['homeTreatment'] as String? ?? '',
+      complaintNotes: (json['complaintNotes'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
+      firstAidNotes: (json['firstAidNotes'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
+      diagnositicNotes: (json['diagnositicNotes'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
+      furtherPlans: (json['furtherPlans'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
       pictures: json['pictures'] == null
           ? const Pictures()
           : Pictures.fromJson(json['pictures']),
@@ -65,10 +77,10 @@ Map<String, dynamic> _$$PatientImplToJson(_$PatientImpl instance) =>
       'age': instance.age,
       'timeOfPresentation': instance.timeOfPresentation?.toIso8601String(),
       'patientType': _$PatientTypeEnumMap[instance.patientType]!,
-      'diagnosis': instance.diagnosis,
-      'complaints': instance.complaints,
-      'emrgencyTreatment': instance.emrgencyTreatment,
-      'homeTreatment': instance.homeTreatment,
+      'complaintNotes': instance.complaintNotes,
+      'firstAidNotes': instance.firstAidNotes,
+      'diagnositicNotes': instance.diagnositicNotes,
+      'furtherPlans': instance.furtherPlans,
       'pictures': instance.pictures,
       'attended': instance.attended,
       'editing': instance.editing,
@@ -81,68 +93,6 @@ const _$PatientTypeEnumMap = {
   PatientType.obs: 'obs',
   PatientType.mixed: 'mixed',
 };
-
-_$ManagementImpl _$$ManagementImplFromJson(Map<String, dynamic> json) =>
-    _$ManagementImpl(
-      type: json['type'] as String? ?? '',
-      medicine: json['medicine'] as String? ?? '',
-      route: json['route'] as String? ?? '',
-      frequency: json['frequency'] as String? ?? '',
-      furtherInstructions: json['furtherInstructions'] as String? ?? '',
-    );
-
-Map<String, dynamic> _$$ManagementImplToJson(_$ManagementImpl instance) =>
-    <String, dynamic>{
-      'type': instance.type,
-      'medicine': instance.medicine,
-      'route': instance.route,
-      'frequency': instance.frequency,
-      'furtherInstructions': instance.furtherInstructions,
-    };
-
-_$DiagnosisImpl _$$DiagnosisImplFromJson(Map<String, dynamic> json) =>
-    _$DiagnosisImpl(
-      diagnosis: json['diagnosis'] as String? ?? 'Unknown',
-      provisionalDiagnoses: (json['provisionalDiagnoses'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-    );
-
-Map<String, dynamic> _$$DiagnosisImplToJson(_$DiagnosisImpl instance) =>
-    <String, dynamic>{
-      'diagnosis': instance.diagnosis,
-      'provisionalDiagnoses': instance.provisionalDiagnoses,
-    };
-
-_$EmergencyManagementImpl _$$EmergencyManagementImplFromJson(
-        Map<String, dynamic> json) =>
-    _$EmergencyManagementImpl(
-      managements: (json['managements'] as List<dynamic>?)
-              ?.map(Management.fromJson)
-              .toList() ??
-          const <Management>[],
-    );
-
-Map<String, dynamic> _$$EmergencyManagementImplToJson(
-        _$EmergencyManagementImpl instance) =>
-    <String, dynamic>{
-      'managements': instance.managements,
-    };
-
-_$HomeManagementImpl _$$HomeManagementImplFromJson(Map<String, dynamic> json) =>
-    _$HomeManagementImpl(
-      managements: (json['managements'] as List<dynamic>?)
-              ?.map(Management.fromJson)
-              .toList() ??
-          const <Management>[],
-    );
-
-Map<String, dynamic> _$$HomeManagementImplToJson(
-        _$HomeManagementImpl instance) =>
-    <String, dynamic>{
-      'managements': instance.managements,
-    };
 
 _$PicturesImpl _$$PicturesImplFromJson(Map<String, dynamic> json) =>
     _$PicturesImpl(

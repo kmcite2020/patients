@@ -8,7 +8,7 @@ class ReadingModeUI extends UI {
   @override
   Widget build(context) {
     return PatientBuilder(
-      id: id,
+      patientID: id,
       builder: (patient) => ListView(
         children: [
           AgeUI(age: patient.age),
@@ -23,25 +23,25 @@ class ReadingModeUI extends UI {
           'COMPLAINTS'
               .text(textScaleFactor: textScaleFactorTitle)
               .borderizeGradiently(),
-          patient.complaints.text().pad(),
+          ...patient.complaintNotes.map((e) => e.text()),
           'DIAGNOSIS'
               .text(
                 textScaleFactor: textScaleFactorTitle,
               )
               .borderizeGradiently(),
-          patient.diagnosis.text().pad(),
+          ...patient.diagnositicNotes.map((e) => e.text()),
           'ER MANAGEMENT'
               .text(
                 textScaleFactor: textScaleFactorTitle,
               )
               .borderizeGradiently(),
-          patient.emrgencyTreatment.text().pad(), // Wrap(
+          ...patient.firstAidNotes.map((e) => e.text()), // Wrap(
           'HOME MANAGEMENT'
               .text(
                 textScaleFactor: textScaleFactorTitle,
               )
               .borderizeGradiently(),
-          patient.homeTreatment.text().pad(),
+          ...patient.furtherPlans.map((e) => e.text()),
         ],
       ),
     );

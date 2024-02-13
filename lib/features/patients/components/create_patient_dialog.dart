@@ -112,27 +112,27 @@ class newPatientManager {
 }
 
 // ignore: camel_case_types
-class patientComplaintsManager {
-  static void setComplaints(List<String> complaintsIDs) {
-    // newPatientManager.setPatient(
-    //   newPatientManager.patient.copyWith(complaintIDs: complaintsIDs),
-    // );
-  }
+// class patientComplaintsManager {
+//   static void setComplaints(List<String> complaintsIDs) {
+//     // newPatientManager.setPatient(
+//     //   newPatientManager.patient.copyWith(complaintIDs: complaintsIDs),
+//     // );
+//   }
 
-  static void addComplaint(String complaintID) {
-    // setComplaints(
-    //   List.of(newPatientManager.patient.complaintIDs)..add(complaintID),
-    // );
-  }
+//   static void addComplaint(String complaintID) {
+//     // setComplaints(
+//     //   List.of(newPatientManager.patient.complaintIDs)..add(complaintID),
+//     // );
+//   }
 
-  static void removeComplaint(String complaintID) {
-    // setComplaints(
-    //   List.of(newPatientManager.patient.complaintIDs)..remove(complaintID),
-    // );
-  }
+//   static void removeComplaint(String complaintID) {
+//     // setComplaints(
+//     //   List.of(newPatientManager.patient.complaintIDs)..remove(complaintID),
+//     // );
+//   }
 
-  static bool contains(String complaintID) {
-    return true;
-    // newPatientManager.patient.complaintIDs.contains(complaintID);
-  }
-}
+//   static bool contains(String complaintID) {
+//     return true;
+//     // newPatientManager.patient.complaintIDs.contains(complaintID);
+//   }
+// }

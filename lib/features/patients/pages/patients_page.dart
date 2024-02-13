@@ -17,7 +17,7 @@ class PatientsPage extends UI {
                 barrierDismissible: false,
               );
               if (response == 0) {
-                patientsManager.setPatient(newPatientManager.patient);
+                setPatient(newPatientManager.patient);
               }
             },
             icon: const Icon(Icons.add),
@@ -26,19 +26,16 @@ class PatientsPage extends UI {
         ],
       ),
       body: ListView.builder(
-        itemCount: patientsManager.listOfPatients.length,
-        itemBuilder: (context, index) {
-          return PatientTile(id: patientsManager.listOfPatients[index].id);
-        },
+        itemCount: listOfPatients.length,
+        itemBuilder: (context, index) =>
+            PatientTile(id: listOfPatients[index].id),
       ),
     );
   }
 }
 
 class BackIconButton extends UI {
-  const BackIconButton({
-    super.key,
-  });
+  const BackIconButton({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -11,7 +11,7 @@ class PatientPage extends UI {
   @override
   Widget build(BuildContext context) {
     return PatientBuilder(
-      id: id,
+      patientID: id,
       builder: (patient) {
         return Scaffold(
           appBar: AppBar(
@@ -20,7 +20,7 @@ class PatientPage extends UI {
             actions: [
               IconButton(
                 onPressed: () {
-                  patientsManager.setPatient(
+                  setPatient(
                     patient.copyWith(attended: !patient.attended),
                   );
                 },
@@ -30,7 +30,7 @@ class PatientPage extends UI {
               ),
               IconButton(
                 onPressed: () {
-                  patientsManager.setPatient(
+                  setPatient(
                     patient.copyWith(editing: !patient.editing),
                   );
                 },
@@ -43,8 +43,9 @@ class PatientPage extends UI {
           ),
           body: Container(
             color: patient.attended ? Colors.redAccent : Colors.deepPurple,
-            child:
-                patient.editing ? EditingModeUI(id: id) : ReadingModeUI(id: id),
+            child: patient.editing
+                ? EditingModeUI(patientID: id)
+                : ReadingModeUI(id: id),
           ),
         );
       },

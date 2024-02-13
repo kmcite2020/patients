@@ -12,6 +12,12 @@ class Patients with _$Patients {
   List<Patient> get listOfPatients => patientsCache.values.toList();
   int get length => patientsCache.length;
   factory Patients.fromJson(json) => _$PatientsFromJson(json);
+  Patients call([Patients? patients]) {
+    if (patients != null) {
+      patientsRM.state = patients;
+    }
+    return patientsRM.state;
+  }
 }
 
 enum AgeUnit { days, months, years }
@@ -34,15 +40,10 @@ class Patient with _$Patient {
     @Default(Age()) final Age age,
     required final DateTime? timeOfPresentation,
     @Default(PatientType.medical) final PatientType patientType,
-    // @Default(Complaints()) final Complaints complaints,
-    // @Default(<String>[]) final List<String> complaintIDs,
-    @Default('') final String diagnosis,
-    @Default('') final String complaints,
-    @Default('') final String emrgencyTreatment,
-    @Default('') final String homeTreatment,
-    // @Default(EmergencyManagement())
-    // final EmergencyManagement emergencyManagement,
-    // @Default(HomeManagement()) final HomeManagement homeManagement,
+    @Default([]) final List<String> complaintNotes,
+    @Default([]) final List<String> firstAidNotes,
+    @Default([]) final List<String> diagnositicNotes,
+    @Default([]) final List<String> furtherPlans,
     @Default(Pictures()) final Pictures pictures,
     @Default(false) final bool attended,
     @Default(false) final bool editing,
@@ -52,7 +53,7 @@ class Patient with _$Patient {
         timeOfPresentation: DateTime.now(),
       );
   factory Patient.fromJson(json) => _$PatientFromJson(json);
-  factory Patient.fromID(String patientID) => patientsManager.fromID(patientID);
+  factory Patient.fromID(String patientID) => patientFromID(patientID);
   const Patient._();
   // List<Complaint> get complaints => complaintIDs
   //     .map(
@@ -61,59 +62,59 @@ class Patient with _$Patient {
   //     .toList();
 }
 
-@freezed
-class Management with _$Management {
-  const factory Management({
-    @Default('') final String type,
-    @Default('') final String medicine,
-    @Default('') final String route,
-    @Default('') final String frequency,
-    @Default('') final String furtherInstructions,
-  }) = _Management;
+// @freezed
+// class Management with _$Management {
+//   const factory Management({
+//     @Default('') final String type,
+//     @Default('') final String medicine,
+//     @Default('') final String route,
+//     @Default('') final String frequency,
+//     @Default('') final String furtherInstructions,
+//   }) = _Management;
 
-  factory Management.fromJson(json) => _$ManagementFromJson(json);
-  factory Management.fromString(String value) {
-    final list = value.split(' ');
-    return Management(
-      type: list[0],
-      medicine: list[1],
-      route: list[2],
-      frequency: list[3],
-      furtherInstructions: list[4],
-    );
-  }
-}
+//   factory Management.fromJson(json) => _$ManagementFromJson(json);
+//   factory Management.fromString(String value) {
+//     final list = value.split(' ');
+//     return Management(
+//       type: list[0],
+//       medicine: list[1],
+//       route: list[2],
+//       frequency: list[3],
+//       furtherInstructions: list[4],
+//     );
+//   }
+// }
 
 enum DurationType { days, months, years }
 
 enum PatientType { medical, surgical, peds, obs, mixed }
 
-@freezed
-class Diagnosis with _$Diagnosis {
-  const factory Diagnosis({
-    @Default('Unknown') final String diagnosis,
-    @Default(<String>[]) final List<String> provisionalDiagnoses,
-  }) = _Diagnosis;
+// @freezed
+// class Diagnosis with _$Diagnosis {
+//   const factory Diagnosis({
+//     @Default('Unknown') final String diagnosis,
+//     @Default(<String>[]) final List<String> provisionalDiagnoses,
+//   }) = _Diagnosis;
 
-  factory Diagnosis.fromJson(json) => _$DiagnosisFromJson(json);
-}
+//   factory Diagnosis.fromJson(json) => _$DiagnosisFromJson(json);
+// }
 
-@freezed
-class EmergencyManagement with _$EmergencyManagement {
-  const factory EmergencyManagement({
-    @Default(<Management>[]) final List<Management> managements,
-  }) = _EmergencyManagement;
-  factory EmergencyManagement.fromJson(json) =>
-      _$EmergencyManagementFromJson(json);
-}
+// @freezed
+// class EmergencyManagement with _$EmergencyManagement {
+//   const factory EmergencyManagement({
+//     @Default(<Management>[]) final List<Management> managements,
+//   }) = _EmergencyManagement;
+//   factory EmergencyManagement.fromJson(json) =>
+//       _$EmergencyManagementFromJson(json);
+// }
 
-@freezed
-class HomeManagement with _$HomeManagement {
-  const factory HomeManagement({
-    @Default(<Management>[]) final List<Management> managements,
-  }) = _HomeManagement;
-  factory HomeManagement.fromJson(json) => _$HomeManagementFromJson(json);
-}
+// @freezed
+// class HomeManagement with _$HomeManagement {
+//   const factory HomeManagement({
+//     @Default(<Management>[]) final List<Management> managements,
+//   }) = _HomeManagement;
+//   factory HomeManagement.fromJson(json) => _$HomeManagementFromJson(json);
+// }
 
 @freezed
 class Pictures with _$Pictures {

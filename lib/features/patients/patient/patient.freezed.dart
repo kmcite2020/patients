@@ -318,16 +318,11 @@ mixin _$Patient {
   String get name => throw _privateConstructorUsedError;
   Age get age => throw _privateConstructorUsedError;
   DateTime? get timeOfPresentation => throw _privateConstructorUsedError;
-  PatientType get patientType =>
-      throw _privateConstructorUsedError; // @Default(Complaints()) final Complaints complaints,
-// @Default(<String>[]) final List<String> complaintIDs,
-  String get diagnosis => throw _privateConstructorUsedError;
-  String get complaints => throw _privateConstructorUsedError;
-  String get emrgencyTreatment => throw _privateConstructorUsedError;
-  String get homeTreatment =>
-      throw _privateConstructorUsedError; // @Default(EmergencyManagement())
-// final EmergencyManagement emergencyManagement,
-// @Default(HomeManagement()) final HomeManagement homeManagement,
+  PatientType get patientType => throw _privateConstructorUsedError;
+  List<String> get complaintNotes => throw _privateConstructorUsedError;
+  List<String> get firstAidNotes => throw _privateConstructorUsedError;
+  List<String> get diagnositicNotes => throw _privateConstructorUsedError;
+  List<String> get furtherPlans => throw _privateConstructorUsedError;
   Pictures get pictures => throw _privateConstructorUsedError;
   bool get attended => throw _privateConstructorUsedError;
   bool get editing => throw _privateConstructorUsedError;
@@ -339,10 +334,10 @@ mixin _$Patient {
             Age age,
             DateTime? timeOfPresentation,
             PatientType patientType,
-            String diagnosis,
-            String complaints,
-            String emrgencyTreatment,
-            String homeTreatment,
+            List<String> complaintNotes,
+            List<String> firstAidNotes,
+            List<String> diagnositicNotes,
+            List<String> furtherPlans,
             Pictures pictures,
             bool attended,
             bool editing)
@@ -357,10 +352,10 @@ mixin _$Patient {
             Age age,
             DateTime? timeOfPresentation,
             PatientType patientType,
-            String diagnosis,
-            String complaints,
-            String emrgencyTreatment,
-            String homeTreatment,
+            List<String> complaintNotes,
+            List<String> firstAidNotes,
+            List<String> diagnositicNotes,
+            List<String> furtherPlans,
             Pictures pictures,
             bool attended,
             bool editing)?
@@ -375,10 +370,10 @@ mixin _$Patient {
             Age age,
             DateTime? timeOfPresentation,
             PatientType patientType,
-            String diagnosis,
-            String complaints,
-            String emrgencyTreatment,
-            String homeTreatment,
+            List<String> complaintNotes,
+            List<String> firstAidNotes,
+            List<String> diagnositicNotes,
+            List<String> furtherPlans,
             Pictures pictures,
             bool attended,
             bool editing)?
@@ -418,10 +413,10 @@ abstract class $PatientCopyWith<$Res> {
       Age age,
       DateTime? timeOfPresentation,
       PatientType patientType,
-      String diagnosis,
-      String complaints,
-      String emrgencyTreatment,
-      String homeTreatment,
+      List<String> complaintNotes,
+      List<String> firstAidNotes,
+      List<String> diagnositicNotes,
+      List<String> furtherPlans,
       Pictures pictures,
       bool attended,
       bool editing});
@@ -448,10 +443,10 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
     Object? age = null,
     Object? timeOfPresentation = freezed,
     Object? patientType = null,
-    Object? diagnosis = null,
-    Object? complaints = null,
-    Object? emrgencyTreatment = null,
-    Object? homeTreatment = null,
+    Object? complaintNotes = null,
+    Object? firstAidNotes = null,
+    Object? diagnositicNotes = null,
+    Object? furtherPlans = null,
     Object? pictures = null,
     Object? attended = null,
     Object? editing = null,
@@ -477,22 +472,22 @@ class _$PatientCopyWithImpl<$Res, $Val extends Patient>
           ? _value.patientType
           : patientType // ignore: cast_nullable_to_non_nullable
               as PatientType,
-      diagnosis: null == diagnosis
-          ? _value.diagnosis
-          : diagnosis // ignore: cast_nullable_to_non_nullable
-              as String,
-      complaints: null == complaints
-          ? _value.complaints
-          : complaints // ignore: cast_nullable_to_non_nullable
-              as String,
-      emrgencyTreatment: null == emrgencyTreatment
-          ? _value.emrgencyTreatment
-          : emrgencyTreatment // ignore: cast_nullable_to_non_nullable
-              as String,
-      homeTreatment: null == homeTreatment
-          ? _value.homeTreatment
-          : homeTreatment // ignore: cast_nullable_to_non_nullable
-              as String,
+      complaintNotes: null == complaintNotes
+          ? _value.complaintNotes
+          : complaintNotes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      firstAidNotes: null == firstAidNotes
+          ? _value.firstAidNotes
+          : firstAidNotes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      diagnositicNotes: null == diagnositicNotes
+          ? _value.diagnositicNotes
+          : diagnositicNotes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      furtherPlans: null == furtherPlans
+          ? _value.furtherPlans
+          : furtherPlans // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       pictures: null == pictures
           ? _value.pictures
           : pictures // ignore: cast_nullable_to_non_nullable
@@ -538,10 +533,10 @@ abstract class _$$PatientImplCopyWith<$Res> implements $PatientCopyWith<$Res> {
       Age age,
       DateTime? timeOfPresentation,
       PatientType patientType,
-      String diagnosis,
-      String complaints,
-      String emrgencyTreatment,
-      String homeTreatment,
+      List<String> complaintNotes,
+      List<String> firstAidNotes,
+      List<String> diagnositicNotes,
+      List<String> furtherPlans,
       Pictures pictures,
       bool attended,
       bool editing});
@@ -568,10 +563,10 @@ class __$$PatientImplCopyWithImpl<$Res>
     Object? age = null,
     Object? timeOfPresentation = freezed,
     Object? patientType = null,
-    Object? diagnosis = null,
-    Object? complaints = null,
-    Object? emrgencyTreatment = null,
-    Object? homeTreatment = null,
+    Object? complaintNotes = null,
+    Object? firstAidNotes = null,
+    Object? diagnositicNotes = null,
+    Object? furtherPlans = null,
     Object? pictures = null,
     Object? attended = null,
     Object? editing = null,
@@ -597,22 +592,22 @@ class __$$PatientImplCopyWithImpl<$Res>
           ? _value.patientType
           : patientType // ignore: cast_nullable_to_non_nullable
               as PatientType,
-      diagnosis: null == diagnosis
-          ? _value.diagnosis
-          : diagnosis // ignore: cast_nullable_to_non_nullable
-              as String,
-      complaints: null == complaints
-          ? _value.complaints
-          : complaints // ignore: cast_nullable_to_non_nullable
-              as String,
-      emrgencyTreatment: null == emrgencyTreatment
-          ? _value.emrgencyTreatment
-          : emrgencyTreatment // ignore: cast_nullable_to_non_nullable
-              as String,
-      homeTreatment: null == homeTreatment
-          ? _value.homeTreatment
-          : homeTreatment // ignore: cast_nullable_to_non_nullable
-              as String,
+      complaintNotes: null == complaintNotes
+          ? _value._complaintNotes
+          : complaintNotes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      firstAidNotes: null == firstAidNotes
+          ? _value._firstAidNotes
+          : firstAidNotes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      diagnositicNotes: null == diagnositicNotes
+          ? _value._diagnositicNotes
+          : diagnositicNotes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      furtherPlans: null == furtherPlans
+          ? _value._furtherPlans
+          : furtherPlans // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       pictures: null == pictures
           ? _value.pictures
           : pictures // ignore: cast_nullable_to_non_nullable
@@ -638,14 +633,18 @@ class _$PatientImpl extends _Patient {
       this.age = const Age(),
       required this.timeOfPresentation,
       this.patientType = PatientType.medical,
-      this.diagnosis = '',
-      this.complaints = '',
-      this.emrgencyTreatment = '',
-      this.homeTreatment = '',
+      final List<String> complaintNotes = const [],
+      final List<String> firstAidNotes = const [],
+      final List<String> diagnositicNotes = const [],
+      final List<String> furtherPlans = const [],
       this.pictures = const Pictures(),
       this.attended = false,
       this.editing = false})
-      : super._();
+      : _complaintNotes = complaintNotes,
+        _firstAidNotes = firstAidNotes,
+        _diagnositicNotes = diagnositicNotes,
+        _furtherPlans = furtherPlans,
+        super._();
 
   factory _$PatientImpl.fromJson(Map<String, dynamic> json) =>
       _$$PatientImplFromJson(json);
@@ -664,23 +663,43 @@ class _$PatientImpl extends _Patient {
   @override
   @JsonKey()
   final PatientType patientType;
-// @Default(Complaints()) final Complaints complaints,
-// @Default(<String>[]) final List<String> complaintIDs,
+  final List<String> _complaintNotes;
   @override
   @JsonKey()
-  final String diagnosis;
+  List<String> get complaintNotes {
+    if (_complaintNotes is EqualUnmodifiableListView) return _complaintNotes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_complaintNotes);
+  }
+
+  final List<String> _firstAidNotes;
   @override
   @JsonKey()
-  final String complaints;
+  List<String> get firstAidNotes {
+    if (_firstAidNotes is EqualUnmodifiableListView) return _firstAidNotes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_firstAidNotes);
+  }
+
+  final List<String> _diagnositicNotes;
   @override
   @JsonKey()
-  final String emrgencyTreatment;
+  List<String> get diagnositicNotes {
+    if (_diagnositicNotes is EqualUnmodifiableListView)
+      return _diagnositicNotes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_diagnositicNotes);
+  }
+
+  final List<String> _furtherPlans;
   @override
   @JsonKey()
-  final String homeTreatment;
-// @Default(EmergencyManagement())
-// final EmergencyManagement emergencyManagement,
-// @Default(HomeManagement()) final HomeManagement homeManagement,
+  List<String> get furtherPlans {
+    if (_furtherPlans is EqualUnmodifiableListView) return _furtherPlans;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_furtherPlans);
+  }
+
   @override
   @JsonKey()
   final Pictures pictures;
@@ -693,7 +712,7 @@ class _$PatientImpl extends _Patient {
 
   @override
   String toString() {
-    return 'Patient.raw(id: $id, name: $name, age: $age, timeOfPresentation: $timeOfPresentation, patientType: $patientType, diagnosis: $diagnosis, complaints: $complaints, emrgencyTreatment: $emrgencyTreatment, homeTreatment: $homeTreatment, pictures: $pictures, attended: $attended, editing: $editing)';
+    return 'Patient.raw(id: $id, name: $name, age: $age, timeOfPresentation: $timeOfPresentation, patientType: $patientType, complaintNotes: $complaintNotes, firstAidNotes: $firstAidNotes, diagnositicNotes: $diagnositicNotes, furtherPlans: $furtherPlans, pictures: $pictures, attended: $attended, editing: $editing)';
   }
 
   @override
@@ -708,14 +727,14 @@ class _$PatientImpl extends _Patient {
                 other.timeOfPresentation == timeOfPresentation) &&
             (identical(other.patientType, patientType) ||
                 other.patientType == patientType) &&
-            (identical(other.diagnosis, diagnosis) ||
-                other.diagnosis == diagnosis) &&
-            (identical(other.complaints, complaints) ||
-                other.complaints == complaints) &&
-            (identical(other.emrgencyTreatment, emrgencyTreatment) ||
-                other.emrgencyTreatment == emrgencyTreatment) &&
-            (identical(other.homeTreatment, homeTreatment) ||
-                other.homeTreatment == homeTreatment) &&
+            const DeepCollectionEquality()
+                .equals(other._complaintNotes, _complaintNotes) &&
+            const DeepCollectionEquality()
+                .equals(other._firstAidNotes, _firstAidNotes) &&
+            const DeepCollectionEquality()
+                .equals(other._diagnositicNotes, _diagnositicNotes) &&
+            const DeepCollectionEquality()
+                .equals(other._furtherPlans, _furtherPlans) &&
             (identical(other.pictures, pictures) ||
                 other.pictures == pictures) &&
             (identical(other.attended, attended) ||
@@ -732,10 +751,10 @@ class _$PatientImpl extends _Patient {
       age,
       timeOfPresentation,
       patientType,
-      diagnosis,
-      complaints,
-      emrgencyTreatment,
-      homeTreatment,
+      const DeepCollectionEquality().hash(_complaintNotes),
+      const DeepCollectionEquality().hash(_firstAidNotes),
+      const DeepCollectionEquality().hash(_diagnositicNotes),
+      const DeepCollectionEquality().hash(_furtherPlans),
       pictures,
       attended,
       editing);
@@ -755,10 +774,10 @@ class _$PatientImpl extends _Patient {
             Age age,
             DateTime? timeOfPresentation,
             PatientType patientType,
-            String diagnosis,
-            String complaints,
-            String emrgencyTreatment,
-            String homeTreatment,
+            List<String> complaintNotes,
+            List<String> firstAidNotes,
+            List<String> diagnositicNotes,
+            List<String> furtherPlans,
             Pictures pictures,
             bool attended,
             bool editing)
@@ -770,10 +789,10 @@ class _$PatientImpl extends _Patient {
         age,
         timeOfPresentation,
         patientType,
-        diagnosis,
-        complaints,
-        emrgencyTreatment,
-        homeTreatment,
+        complaintNotes,
+        firstAidNotes,
+        diagnositicNotes,
+        furtherPlans,
         pictures,
         attended,
         editing);
@@ -788,10 +807,10 @@ class _$PatientImpl extends _Patient {
             Age age,
             DateTime? timeOfPresentation,
             PatientType patientType,
-            String diagnosis,
-            String complaints,
-            String emrgencyTreatment,
-            String homeTreatment,
+            List<String> complaintNotes,
+            List<String> firstAidNotes,
+            List<String> diagnositicNotes,
+            List<String> furtherPlans,
             Pictures pictures,
             bool attended,
             bool editing)?
@@ -803,10 +822,10 @@ class _$PatientImpl extends _Patient {
         age,
         timeOfPresentation,
         patientType,
-        diagnosis,
-        complaints,
-        emrgencyTreatment,
-        homeTreatment,
+        complaintNotes,
+        firstAidNotes,
+        diagnositicNotes,
+        furtherPlans,
         pictures,
         attended,
         editing);
@@ -821,10 +840,10 @@ class _$PatientImpl extends _Patient {
             Age age,
             DateTime? timeOfPresentation,
             PatientType patientType,
-            String diagnosis,
-            String complaints,
-            String emrgencyTreatment,
-            String homeTreatment,
+            List<String> complaintNotes,
+            List<String> firstAidNotes,
+            List<String> diagnositicNotes,
+            List<String> furtherPlans,
             Pictures pictures,
             bool attended,
             bool editing)?
@@ -838,10 +857,10 @@ class _$PatientImpl extends _Patient {
           age,
           timeOfPresentation,
           patientType,
-          diagnosis,
-          complaints,
-          emrgencyTreatment,
-          homeTreatment,
+          complaintNotes,
+          firstAidNotes,
+          diagnositicNotes,
+          furtherPlans,
           pictures,
           attended,
           editing);
@@ -892,10 +911,10 @@ abstract class _Patient extends Patient {
       final Age age,
       required final DateTime? timeOfPresentation,
       final PatientType patientType,
-      final String diagnosis,
-      final String complaints,
-      final String emrgencyTreatment,
-      final String homeTreatment,
+      final List<String> complaintNotes,
+      final List<String> firstAidNotes,
+      final List<String> diagnositicNotes,
+      final List<String> furtherPlans,
       final Pictures pictures,
       final bool attended,
       final bool editing}) = _$PatientImpl;
@@ -913,18 +932,15 @@ abstract class _Patient extends Patient {
   DateTime? get timeOfPresentation;
   @override
   PatientType get patientType;
-  @override // @Default(Complaints()) final Complaints complaints,
-// @Default(<String>[]) final List<String> complaintIDs,
-  String get diagnosis;
   @override
-  String get complaints;
+  List<String> get complaintNotes;
   @override
-  String get emrgencyTreatment;
+  List<String> get firstAidNotes;
   @override
-  String get homeTreatment;
-  @override // @Default(EmergencyManagement())
-// final EmergencyManagement emergencyManagement,
-// @Default(HomeManagement()) final HomeManagement homeManagement,
+  List<String> get diagnositicNotes;
+  @override
+  List<String> get furtherPlans;
+  @override
   Pictures get pictures;
   @override
   bool get attended;
@@ -933,698 +949,6 @@ abstract class _Patient extends Patient {
   @override
   @JsonKey(ignore: true)
   _$$PatientImplCopyWith<_$PatientImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Management _$ManagementFromJson(Map<String, dynamic> json) {
-  return _Management.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Management {
-  String get type => throw _privateConstructorUsedError;
-  String get medicine => throw _privateConstructorUsedError;
-  String get route => throw _privateConstructorUsedError;
-  String get frequency => throw _privateConstructorUsedError;
-  String get furtherInstructions => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ManagementCopyWith<Management> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ManagementCopyWith<$Res> {
-  factory $ManagementCopyWith(
-          Management value, $Res Function(Management) then) =
-      _$ManagementCopyWithImpl<$Res, Management>;
-  @useResult
-  $Res call(
-      {String type,
-      String medicine,
-      String route,
-      String frequency,
-      String furtherInstructions});
-}
-
-/// @nodoc
-class _$ManagementCopyWithImpl<$Res, $Val extends Management>
-    implements $ManagementCopyWith<$Res> {
-  _$ManagementCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? medicine = null,
-    Object? route = null,
-    Object? frequency = null,
-    Object? furtherInstructions = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      medicine: null == medicine
-          ? _value.medicine
-          : medicine // ignore: cast_nullable_to_non_nullable
-              as String,
-      route: null == route
-          ? _value.route
-          : route // ignore: cast_nullable_to_non_nullable
-              as String,
-      frequency: null == frequency
-          ? _value.frequency
-          : frequency // ignore: cast_nullable_to_non_nullable
-              as String,
-      furtherInstructions: null == furtherInstructions
-          ? _value.furtherInstructions
-          : furtherInstructions // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$ManagementImplCopyWith<$Res>
-    implements $ManagementCopyWith<$Res> {
-  factory _$$ManagementImplCopyWith(
-          _$ManagementImpl value, $Res Function(_$ManagementImpl) then) =
-      __$$ManagementImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String type,
-      String medicine,
-      String route,
-      String frequency,
-      String furtherInstructions});
-}
-
-/// @nodoc
-class __$$ManagementImplCopyWithImpl<$Res>
-    extends _$ManagementCopyWithImpl<$Res, _$ManagementImpl>
-    implements _$$ManagementImplCopyWith<$Res> {
-  __$$ManagementImplCopyWithImpl(
-      _$ManagementImpl _value, $Res Function(_$ManagementImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? medicine = null,
-    Object? route = null,
-    Object? frequency = null,
-    Object? furtherInstructions = null,
-  }) {
-    return _then(_$ManagementImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      medicine: null == medicine
-          ? _value.medicine
-          : medicine // ignore: cast_nullable_to_non_nullable
-              as String,
-      route: null == route
-          ? _value.route
-          : route // ignore: cast_nullable_to_non_nullable
-              as String,
-      frequency: null == frequency
-          ? _value.frequency
-          : frequency // ignore: cast_nullable_to_non_nullable
-              as String,
-      furtherInstructions: null == furtherInstructions
-          ? _value.furtherInstructions
-          : furtherInstructions // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$ManagementImpl implements _Management {
-  const _$ManagementImpl(
-      {this.type = '',
-      this.medicine = '',
-      this.route = '',
-      this.frequency = '',
-      this.furtherInstructions = ''});
-
-  factory _$ManagementImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ManagementImplFromJson(json);
-
-  @override
-  @JsonKey()
-  final String type;
-  @override
-  @JsonKey()
-  final String medicine;
-  @override
-  @JsonKey()
-  final String route;
-  @override
-  @JsonKey()
-  final String frequency;
-  @override
-  @JsonKey()
-  final String furtherInstructions;
-
-  @override
-  String toString() {
-    return 'Management(type: $type, medicine: $medicine, route: $route, frequency: $frequency, furtherInstructions: $furtherInstructions)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ManagementImpl &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.medicine, medicine) ||
-                other.medicine == medicine) &&
-            (identical(other.route, route) || other.route == route) &&
-            (identical(other.frequency, frequency) ||
-                other.frequency == frequency) &&
-            (identical(other.furtherInstructions, furtherInstructions) ||
-                other.furtherInstructions == furtherInstructions));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, type, medicine, route, frequency, furtherInstructions);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ManagementImplCopyWith<_$ManagementImpl> get copyWith =>
-      __$$ManagementImplCopyWithImpl<_$ManagementImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ManagementImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Management implements Management {
-  const factory _Management(
-      {final String type,
-      final String medicine,
-      final String route,
-      final String frequency,
-      final String furtherInstructions}) = _$ManagementImpl;
-
-  factory _Management.fromJson(Map<String, dynamic> json) =
-      _$ManagementImpl.fromJson;
-
-  @override
-  String get type;
-  @override
-  String get medicine;
-  @override
-  String get route;
-  @override
-  String get frequency;
-  @override
-  String get furtherInstructions;
-  @override
-  @JsonKey(ignore: true)
-  _$$ManagementImplCopyWith<_$ManagementImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Diagnosis _$DiagnosisFromJson(Map<String, dynamic> json) {
-  return _Diagnosis.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Diagnosis {
-  String get diagnosis => throw _privateConstructorUsedError;
-  List<String> get provisionalDiagnoses => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $DiagnosisCopyWith<Diagnosis> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DiagnosisCopyWith<$Res> {
-  factory $DiagnosisCopyWith(Diagnosis value, $Res Function(Diagnosis) then) =
-      _$DiagnosisCopyWithImpl<$Res, Diagnosis>;
-  @useResult
-  $Res call({String diagnosis, List<String> provisionalDiagnoses});
-}
-
-/// @nodoc
-class _$DiagnosisCopyWithImpl<$Res, $Val extends Diagnosis>
-    implements $DiagnosisCopyWith<$Res> {
-  _$DiagnosisCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? diagnosis = null,
-    Object? provisionalDiagnoses = null,
-  }) {
-    return _then(_value.copyWith(
-      diagnosis: null == diagnosis
-          ? _value.diagnosis
-          : diagnosis // ignore: cast_nullable_to_non_nullable
-              as String,
-      provisionalDiagnoses: null == provisionalDiagnoses
-          ? _value.provisionalDiagnoses
-          : provisionalDiagnoses // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$DiagnosisImplCopyWith<$Res>
-    implements $DiagnosisCopyWith<$Res> {
-  factory _$$DiagnosisImplCopyWith(
-          _$DiagnosisImpl value, $Res Function(_$DiagnosisImpl) then) =
-      __$$DiagnosisImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String diagnosis, List<String> provisionalDiagnoses});
-}
-
-/// @nodoc
-class __$$DiagnosisImplCopyWithImpl<$Res>
-    extends _$DiagnosisCopyWithImpl<$Res, _$DiagnosisImpl>
-    implements _$$DiagnosisImplCopyWith<$Res> {
-  __$$DiagnosisImplCopyWithImpl(
-      _$DiagnosisImpl _value, $Res Function(_$DiagnosisImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? diagnosis = null,
-    Object? provisionalDiagnoses = null,
-  }) {
-    return _then(_$DiagnosisImpl(
-      diagnosis: null == diagnosis
-          ? _value.diagnosis
-          : diagnosis // ignore: cast_nullable_to_non_nullable
-              as String,
-      provisionalDiagnoses: null == provisionalDiagnoses
-          ? _value._provisionalDiagnoses
-          : provisionalDiagnoses // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$DiagnosisImpl implements _Diagnosis {
-  const _$DiagnosisImpl(
-      {this.diagnosis = 'Unknown',
-      final List<String> provisionalDiagnoses = const <String>[]})
-      : _provisionalDiagnoses = provisionalDiagnoses;
-
-  factory _$DiagnosisImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DiagnosisImplFromJson(json);
-
-  @override
-  @JsonKey()
-  final String diagnosis;
-  final List<String> _provisionalDiagnoses;
-  @override
-  @JsonKey()
-  List<String> get provisionalDiagnoses {
-    if (_provisionalDiagnoses is EqualUnmodifiableListView)
-      return _provisionalDiagnoses;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_provisionalDiagnoses);
-  }
-
-  @override
-  String toString() {
-    return 'Diagnosis(diagnosis: $diagnosis, provisionalDiagnoses: $provisionalDiagnoses)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DiagnosisImpl &&
-            (identical(other.diagnosis, diagnosis) ||
-                other.diagnosis == diagnosis) &&
-            const DeepCollectionEquality()
-                .equals(other._provisionalDiagnoses, _provisionalDiagnoses));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, diagnosis,
-      const DeepCollectionEquality().hash(_provisionalDiagnoses));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DiagnosisImplCopyWith<_$DiagnosisImpl> get copyWith =>
-      __$$DiagnosisImplCopyWithImpl<_$DiagnosisImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DiagnosisImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Diagnosis implements Diagnosis {
-  const factory _Diagnosis(
-      {final String diagnosis,
-      final List<String> provisionalDiagnoses}) = _$DiagnosisImpl;
-
-  factory _Diagnosis.fromJson(Map<String, dynamic> json) =
-      _$DiagnosisImpl.fromJson;
-
-  @override
-  String get diagnosis;
-  @override
-  List<String> get provisionalDiagnoses;
-  @override
-  @JsonKey(ignore: true)
-  _$$DiagnosisImplCopyWith<_$DiagnosisImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-EmergencyManagement _$EmergencyManagementFromJson(Map<String, dynamic> json) {
-  return _EmergencyManagement.fromJson(json);
-}
-
-/// @nodoc
-mixin _$EmergencyManagement {
-  List<Management> get managements => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $EmergencyManagementCopyWith<EmergencyManagement> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $EmergencyManagementCopyWith<$Res> {
-  factory $EmergencyManagementCopyWith(
-          EmergencyManagement value, $Res Function(EmergencyManagement) then) =
-      _$EmergencyManagementCopyWithImpl<$Res, EmergencyManagement>;
-  @useResult
-  $Res call({List<Management> managements});
-}
-
-/// @nodoc
-class _$EmergencyManagementCopyWithImpl<$Res, $Val extends EmergencyManagement>
-    implements $EmergencyManagementCopyWith<$Res> {
-  _$EmergencyManagementCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? managements = null,
-  }) {
-    return _then(_value.copyWith(
-      managements: null == managements
-          ? _value.managements
-          : managements // ignore: cast_nullable_to_non_nullable
-              as List<Management>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$EmergencyManagementImplCopyWith<$Res>
-    implements $EmergencyManagementCopyWith<$Res> {
-  factory _$$EmergencyManagementImplCopyWith(_$EmergencyManagementImpl value,
-          $Res Function(_$EmergencyManagementImpl) then) =
-      __$$EmergencyManagementImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<Management> managements});
-}
-
-/// @nodoc
-class __$$EmergencyManagementImplCopyWithImpl<$Res>
-    extends _$EmergencyManagementCopyWithImpl<$Res, _$EmergencyManagementImpl>
-    implements _$$EmergencyManagementImplCopyWith<$Res> {
-  __$$EmergencyManagementImplCopyWithImpl(_$EmergencyManagementImpl _value,
-      $Res Function(_$EmergencyManagementImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? managements = null,
-  }) {
-    return _then(_$EmergencyManagementImpl(
-      managements: null == managements
-          ? _value._managements
-          : managements // ignore: cast_nullable_to_non_nullable
-              as List<Management>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$EmergencyManagementImpl implements _EmergencyManagement {
-  const _$EmergencyManagementImpl(
-      {final List<Management> managements = const <Management>[]})
-      : _managements = managements;
-
-  factory _$EmergencyManagementImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EmergencyManagementImplFromJson(json);
-
-  final List<Management> _managements;
-  @override
-  @JsonKey()
-  List<Management> get managements {
-    if (_managements is EqualUnmodifiableListView) return _managements;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_managements);
-  }
-
-  @override
-  String toString() {
-    return 'EmergencyManagement(managements: $managements)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$EmergencyManagementImpl &&
-            const DeepCollectionEquality()
-                .equals(other._managements, _managements));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_managements));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$EmergencyManagementImplCopyWith<_$EmergencyManagementImpl> get copyWith =>
-      __$$EmergencyManagementImplCopyWithImpl<_$EmergencyManagementImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$EmergencyManagementImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _EmergencyManagement implements EmergencyManagement {
-  const factory _EmergencyManagement({final List<Management> managements}) =
-      _$EmergencyManagementImpl;
-
-  factory _EmergencyManagement.fromJson(Map<String, dynamic> json) =
-      _$EmergencyManagementImpl.fromJson;
-
-  @override
-  List<Management> get managements;
-  @override
-  @JsonKey(ignore: true)
-  _$$EmergencyManagementImplCopyWith<_$EmergencyManagementImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-HomeManagement _$HomeManagementFromJson(Map<String, dynamic> json) {
-  return _HomeManagement.fromJson(json);
-}
-
-/// @nodoc
-mixin _$HomeManagement {
-  List<Management> get managements => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $HomeManagementCopyWith<HomeManagement> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $HomeManagementCopyWith<$Res> {
-  factory $HomeManagementCopyWith(
-          HomeManagement value, $Res Function(HomeManagement) then) =
-      _$HomeManagementCopyWithImpl<$Res, HomeManagement>;
-  @useResult
-  $Res call({List<Management> managements});
-}
-
-/// @nodoc
-class _$HomeManagementCopyWithImpl<$Res, $Val extends HomeManagement>
-    implements $HomeManagementCopyWith<$Res> {
-  _$HomeManagementCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? managements = null,
-  }) {
-    return _then(_value.copyWith(
-      managements: null == managements
-          ? _value.managements
-          : managements // ignore: cast_nullable_to_non_nullable
-              as List<Management>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$HomeManagementImplCopyWith<$Res>
-    implements $HomeManagementCopyWith<$Res> {
-  factory _$$HomeManagementImplCopyWith(_$HomeManagementImpl value,
-          $Res Function(_$HomeManagementImpl) then) =
-      __$$HomeManagementImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<Management> managements});
-}
-
-/// @nodoc
-class __$$HomeManagementImplCopyWithImpl<$Res>
-    extends _$HomeManagementCopyWithImpl<$Res, _$HomeManagementImpl>
-    implements _$$HomeManagementImplCopyWith<$Res> {
-  __$$HomeManagementImplCopyWithImpl(
-      _$HomeManagementImpl _value, $Res Function(_$HomeManagementImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? managements = null,
-  }) {
-    return _then(_$HomeManagementImpl(
-      managements: null == managements
-          ? _value._managements
-          : managements // ignore: cast_nullable_to_non_nullable
-              as List<Management>,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$HomeManagementImpl implements _HomeManagement {
-  const _$HomeManagementImpl(
-      {final List<Management> managements = const <Management>[]})
-      : _managements = managements;
-
-  factory _$HomeManagementImpl.fromJson(Map<String, dynamic> json) =>
-      _$$HomeManagementImplFromJson(json);
-
-  final List<Management> _managements;
-  @override
-  @JsonKey()
-  List<Management> get managements {
-    if (_managements is EqualUnmodifiableListView) return _managements;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_managements);
-  }
-
-  @override
-  String toString() {
-    return 'HomeManagement(managements: $managements)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$HomeManagementImpl &&
-            const DeepCollectionEquality()
-                .equals(other._managements, _managements));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_managements));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$HomeManagementImplCopyWith<_$HomeManagementImpl> get copyWith =>
-      __$$HomeManagementImplCopyWithImpl<_$HomeManagementImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$HomeManagementImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _HomeManagement implements HomeManagement {
-  const factory _HomeManagement({final List<Management> managements}) =
-      _$HomeManagementImpl;
-
-  factory _HomeManagement.fromJson(Map<String, dynamic> json) =
-      _$HomeManagementImpl.fromJson;
-
-  @override
-  List<Management> get managements;
-  @override
-  @JsonKey(ignore: true)
-  _$$HomeManagementImplCopyWith<_$HomeManagementImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

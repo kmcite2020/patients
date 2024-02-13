@@ -30,7 +30,7 @@ class HomePage extends UI {
               onTap: () => navigator.to(
                 const PatientsPage(),
               ),
-              child: patientsManager.patients.length
+              child: patients.length
                   .text(
                     textScaleFactor: 4,
                   )
